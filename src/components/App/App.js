@@ -9,10 +9,10 @@ function App(props) {
   const [gifUrl, setGifUrl] = useState('');
 
   useEffect(() => {
-    axios.get('/random').then(response => {
+    axios.get('/search').then(response => {
       console.log(response.data);
     
-      setGifUrl(response.data.data.images.downsized_medium.url);
+      setGifUrl(response.data.data.images);
     }).catch(error => {
       console.log(error);
       alert(`Oops, I did it again.`);
@@ -24,7 +24,7 @@ function App(props) {
       <Router>
         
         <Route exact path="/">
-          <Search />
+          <Search gifUrl={gifUrl}/>
         </Route>
 
         <Route exact path="/favorites">

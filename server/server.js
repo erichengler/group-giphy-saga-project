@@ -27,7 +27,7 @@ app.use('/api/category', categoryRouter);
 
 // TODO
 app.get('/search', (req, res) => {
-  axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&tag=&rating=g`)
+  axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=cheeseburgers&limit=20`)
   .then(response => {
     res.send(response.data);
   }).catch((error) => {
