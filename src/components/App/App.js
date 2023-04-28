@@ -6,13 +6,13 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function App(props) {
-  const [gifUrl, setGifUrl] = useState('');
+  const [gifUrls, setGifUrls] = useState('');
 
   useEffect(() => {
     axios.get('/search').then(response => {
       console.log(response.data);
     
-      setGifUrl(response.data.data.images);
+      setGifUrls(response.data.data);
     }).catch(error => {
       console.log(error);
       alert(`Oops, I did it again.`);
@@ -24,7 +24,7 @@ function App(props) {
       <Router>
         
         <Route exact path="/">
-          <Search gifUrl={gifUrl}/>
+          <Search gifUrls={gifUrls}/>
         </Route>
 
         <Route exact path="/favorites">
