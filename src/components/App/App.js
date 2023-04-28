@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function App(props) {
-  const [gifUrls, setGifUrls] = useState('');
+  const [gifUrls, setGifUrls] = useState([]);
 
   useEffect(() => {
     axios.get('/search').then(response => {

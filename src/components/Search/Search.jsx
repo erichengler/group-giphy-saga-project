@@ -1,6 +1,8 @@
-function Search ({ gifUrls }) {
+import './Search.css'
 
-    console.log( gifUrls )
+function Search({ gifUrls }) {
+
+    console.log(gifUrls)
 
     const addFavorite = () => {
         // TODO: POST Request to favorite DB
@@ -9,15 +11,18 @@ function Search ({ gifUrls }) {
     return (
         <>
             <h3>Search</h3>
-            {/* {
+            {
                 gifUrls.map(gif => {
-                    <div key={gif.id}>
-                        <img src={gif.url} />
-                        <br />
-                        <button onClick={ (e) => addFavorite(e) }>Favorite</button>
-                    </div>             
+                    return (
+                        <div key={gif.id}>
+                            <img className="gifs" src={gif.images.downsized_medium.url} />
+                            <br />
+                            <button onClick={(e) => addFavorite(e)}>Favorite</button>
+                            <br /><br /><br />
+                        </div>
+                    )
                 })
-            }            */}
+            }
         </>
     )
 }
