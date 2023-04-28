@@ -8,9 +8,16 @@ function Search({ gifUrls }) {
         // TODO: POST Request to favorite DB
     }
 
+    const submitSearch = () => {
+        // TODO: GET request that sends req (search input)
+    }
+
     return (
         <>
             <h3>Search</h3>
+            <input type="text" />
+            <button onClick={submitSearch}>Search</button>
+            <br /><br />
             {
                 gifUrls.map(gif => {
                     return (
