@@ -5,6 +5,9 @@
 # React Build Directory
 build/
 
+# Env
+
+
 # Logs
 logs
 *.log
