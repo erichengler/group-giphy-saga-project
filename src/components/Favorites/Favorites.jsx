@@ -24,7 +24,6 @@ function Favorites ({gifFaves, setGifFaveList}) {
             <FavoriteItems 
             gifFaves={gifFaves}
             />
-
         </>
     )
 }
