@@ -2,29 +2,18 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import React from 'react';
 import Search from '../Search/Search';
 import Favorites from '../Favorites/Favorites';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
 
 function App(props) {
-  const [gifUrls, setGifUrls] = useState([]);
 
-  useEffect(() => {
-    axios.get('/search').then(response => {
-      console.log(response.data);
-    
-      setGifUrls(response.data.data);
-    }).catch(error => {
-      console.log(error);
-      alert(`Oops, I did it again.`);
-    });
-  }, []);
+    // TODO: Remove useEffect, make it a post instead of a get
+    // TODO: Comma after '/search' and add object to send -> access as req.body.value in server.js
 
   return (
     <div className='App'>
       <Router>
         
         <Route exact path="/">
-          <Search gifUrls={gifUrls}/>
+          <Search />
         </Route>
 
         <Route exact path="/favorites">

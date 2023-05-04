@@ -25,9 +25,8 @@ app.use(express.static('build'));
 app.use('/api/favorite', favoriteRouter);
 app.use('/api/category', categoryRouter);
 
-// TODO: Replace cheeseburgers with ${req.body}
-app.get('/search', (req, res) => {
-  axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=cheeseburgers&limit=20`)
+app.post('/search', (req, res) => {
+  axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.body.value}&limit=10`)
   .then(response => {
     res.send(response.data);
   }).catch((error) => {

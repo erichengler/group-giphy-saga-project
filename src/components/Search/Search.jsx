@@ -1,21 +1,36 @@
+import {useState} from 'react';
+import axios from 'axios';
 import './Search.css'
 
-function Search({ gifUrls }) {
+function Search() {
 
-    console.log(gifUrls)
+    const [searchInput, setSearchInput] = useState('');
+    const [gifUrls, setGifUrls] = useState([]);
 
     const addFavorite = () => {
         // TODO: POST Request to favorite DB
     }
 
     const submitSearch = () => {
-        // TODO: GET request that sends req (search input)
+        axios.post('/search', {
+            value: searchInput
+        } ).then(res => {
+            console.log(res.data);
+            setGifUrls(res.data.data);
+          }).catch(error => {
+            console.log(error);
+            alert(`Oops, I did it again.`);
+          });
+    }
+
+    const handleSearchChange = (event) => {
+        setSearchInput(event.target.value)
     }
 
     return (
         <>
             <h3>Search</h3>
-            <input type="text" />
+            <input type="text" onChange ={handleSearchChange} />
             <button onClick={submitSearch}>Search</button>
             <br /><br />
             {
