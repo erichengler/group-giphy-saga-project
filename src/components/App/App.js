@@ -8,9 +8,12 @@ import axios from 'axios';
 function App(props) {
   const [gifUrls, setGifUrls] = useState([]);
 
+  //* Added below for when we set the favorites
+  const [gifFaves, setGifFaveList] = useState([]);
+
   useEffect(() => {
     axios.get('/search').then(response => {
-      console.log(response.data);
+      // console.log(response.data);
     
       setGifUrls(response.data.data);
     }).catch(error => {
@@ -28,7 +31,10 @@ function App(props) {
         </Route>
 
         <Route exact path="/favorites">
-          <Favorites />
+          <Favorites 
+          gifFaves={gifFaves}
+          setGifFaveList={setGifFaveList}
+          />
         </Route>
 
       </Router>
