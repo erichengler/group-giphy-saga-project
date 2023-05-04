@@ -17,7 +17,10 @@ function App(props) {
         </Route>
 
         <Route exact path="/favorites">
-          <Favorites />
+          <Favorites 
+          gifFaves={gifFaves}
+          setGifFaveList={setGifFaveList}
+          />
         </Route>
 
       </Router>

@@ -19,3 +19,8 @@ CREATE TABLE "favorite" (
 -- Default categories. You may change them :)
 INSERT INTO "category" ("name")
 VALUES ('funny'), ('cohort'), ('cartoon'), ('nsfw'), ('meme');
+
+
+-- #TEST FAVORITE
+Insert into "favorite" ("url")
+Values ('url#1'), ('url#2'),('url#3');
