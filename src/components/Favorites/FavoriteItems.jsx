@@ -1,12 +1,10 @@
 import {useState} from 'react';
+import CategoryBtn from './CategoryBtn.jsx';
 
 function FavoriteItems ({gifFaves}) {
   const [open, setToggleOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    // console.log(open)
-    setToggleOpen(!open)
-  }
+
 
   return(
 
@@ -18,10 +16,13 @@ function FavoriteItems ({gifFaves}) {
         <div key={gif.id}>
           {/* needs to change to accomodate actual data information from table */}
           <img src={'#'} alt={gif.url} />
-          <div className="btnContainer" onClick={toggleDropdown}>
-            <button className="dropButton">set category:</button>
-            {/* Drop down still needs work. Had issues with previous idea. */}
-          </div>
+          <CategoryBtn 
+          key={gif.id}
+          gif={gif}
+          open={open}
+          setToggleOpen={setToggleOpen}
+          
+          />
         </div>
       ))
     }
