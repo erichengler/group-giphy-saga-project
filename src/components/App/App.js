@@ -1,13 +1,13 @@
 import { HashRouter as Router, Route } from 'react-router-dom';
+import {useState} from 'react';
 import React from 'react';
 import Search from '../Search/Search';
 import Favorites from '../Favorites/Favorites';
 
 function App(props) {
 
-    // TODO: Remove useEffect, make it a post instead of a get
-    // TODO: Comma after '/search' and add object to send -> access as req.body.value in server.js
-
+  const [gifFaves, setGifFaveList] = useState([])
+  
   return (
     <div className='App'>
       <Router>
