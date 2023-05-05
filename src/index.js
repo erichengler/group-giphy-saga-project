@@ -16,6 +16,8 @@ const favoritesList = (state = [], action) => {
     }
 }
 
+
+
 // Store
 const storeInstance = createStore(
     combineReducers(

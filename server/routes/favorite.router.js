@@ -5,7 +5,7 @@ const router = express.Router();
 
 // return all favorite images
 router.get('/', (req, res) => {
-  const queryText = `SELECT * from "favorite";`;
+  const queryText = `SELECT * from "favorite" ORDER BY "id" ASC;`;
   pool.query(queryText)
     .then(result => {
       console.log(`getting all fave gifs: ${result}`);
@@ -31,8 +31,16 @@ router.post('/', (req, res) => {
 
 // update given favorite with a category id
 router.put('/:favId', (req, res) => {
+  const queryText = `UPDATE "favorite" set "category_id" = $1 
+  where "id" = $2;`;
+  pool.query(queryText, [ req.body.category_id, req.body.id ])
+    .then((result) => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log(`Error in PUT: ${error}`);
+      res.sendStatus(500);
+    })
   // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
 });
 
 // delete a favorite
