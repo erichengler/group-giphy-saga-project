@@ -16,8 +16,7 @@ function CategoryBtn({gif}) {
     axios.put(`/api/favorite/${gif.id}`, {
       category_id: category,
       id: gif.id
-    }).then((response ) => {
-      console.log(`post response: ${response}`);
+    }).then((response) => {
     }).catch((error) => {
       console.log(`Error in putCatgegory: ${error}`);
       alert(`Goshdarnnit`);
